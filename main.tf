@@ -29,7 +29,7 @@ data "aws_acm_certificate" "cert" {
 
 module "single_page_lambda" {
   count              = var.single_page_app == null ? 0 : 1
-  source             = "/home/dan/dev/terraform/aws/lambda_function" #"github.com/tfext/terraform-aws-lambda-function?ref=ddrew-edge"
+  source             = "github.com/tfext/terraform-aws-lambda-function?ref=v1"
   name               = "${var.name}-single-page-app"
   runtime            = "nodejs20.x"
   entrypoint         = "index"
